@@ -25,7 +25,7 @@ class S3Inherited(Bucket):
         self.opts = opts
     def create(self) -> None:
         super().__init__(resource_name=self.name, opts=self.opts, **vars(self.args))
-        export(self.name, vars(self.args))
+        export(self.name, self)
     @classmethod
     def get(cls, name, id) -> Bucket:
         return super().get(name, id)

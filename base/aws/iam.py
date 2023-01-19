@@ -20,7 +20,7 @@ class IAMRoleInherited(Role):
         self.opts = opts
     def create(self) -> None:
         super().__init__(self.resource_name, self.args, self.opts)
-        export(self.name, vars(self.args))
+        export(self.name, self)
     @classmethod
     def get(cls, name) -> Role:
         return super().get(name)
@@ -43,4 +43,4 @@ class IAMPolicyInherited(Policy):
         self.opts = opts
     def create(self) -> None:
         super().__init__(self.resource_name, self.args, self.opts)
-        export(self.resource_name, vars(self.args))
+        export(self.resource_name, self)
